@@ -5,10 +5,10 @@ namespace :user do
 
     ui = HighLine.new
 
-    name = ui.ask("Name: ")
-    email = ui.ask("E-mail: ")
-    user_name = ui.ask("User name: ")
-    password = ui.ask("Password: ")
+    name      = ENV['USERNAME']  || ui.ask("Name: ")
+    email     = ENV['EMAIL']     || ui.ask("E-mail: ")
+    user_name = ENV['USER_NAME'] || ui.ask("User name: ")
+    password  = ENV['PASSWORD']  || ui.ask("Password: ")
 
     user = User.create(:name => name, :email => email,
       :user_name => user_name, :password => password)
